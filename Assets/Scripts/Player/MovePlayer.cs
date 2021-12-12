@@ -13,9 +13,10 @@ namespace Player
             this.controllerPlayer = controllerPlayer;
         }
 
-        public void Move(Vector2 position)
+        public void Move(Vector3 position)
         {
-            transform.position = position + new Vector2(0, controllerPlayer.Size / 2.0f);
+            var positionY = controllerPlayer.Size / 2.0f + 0.3f;
+            transform.position = position + new Vector3(0, positionY, 0);
         }
     }
 }

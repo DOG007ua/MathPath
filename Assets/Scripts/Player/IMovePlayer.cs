@@ -4,6 +4,6 @@ namespace Player
 {
     public interface IMovePlayer
     {
-        void Move(Vector2 position);
+        void Move(Vector3 position);
     }
 }

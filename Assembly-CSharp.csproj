@@ -65,7 +65,7 @@
      <Compile Include="Assets\Scripts\Player\ControllerPlayer.cs" />
      <Compile Include="Assets\Scripts\Player\IMovePlayer.cs" />
      <Compile Include="Assets\Scripts\Player\MovePlayer.cs" />
-     <Compile Include="Assets\Scripts\ServiceLocator\ServiceLocator.cs" />
+     <Compile Include="Assets\Scripts\ServiceLocatorFolder\ServiceLocator.cs" />
      <Compile Include="Assets\Scripts\Spawner\Factory.cs" />
      <Compile Include="Assets\Scripts\Spawner\SpawnGate.cs" />
      <Compile Include="Assets\Scripts\Spawner\SpawnRoad.cs" />

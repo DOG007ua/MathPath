@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ServiceLocator
+namespace ServiceLocatorFolder
 {
     public class ServiceLocator
     {
-        private Dictionary<Type, object> list;
+        private Dictionary<Type, object> list = new Dictionary<Type, object>();
 
         public void Register<T>(T realization)
         {
@@ -16,6 +16,5 @@ namespace ServiceLocator
         {
             return (T)list[typeof(T)];
         }
-        
     }
 }

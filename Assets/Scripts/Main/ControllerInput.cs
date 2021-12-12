@@ -1,10 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Collections.Generic;using Main.Interface;
 using UnityEngine;
 
-public class ControllerInput : MonoBehaviour
+public class ControllerInput :  MonoBehaviour, IControllerInput
 {
-    public Vector2 PositionMouse { get; private set; }
+    public Vector3 PositionMouse { get; private set; }
+    private float minX = -7;
+    private float maxX = -2;
 
     void Start()
     {
@@ -20,8 +22,13 @@ public class ControllerInput : MonoBehaviour
     private void SetterPositionMouse()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit Po;
-        if (Physics.Raycast(ray, out Po))
-            PositionMouse = new Vector2(Po.point.x,Po.point.y);
+        RaycastHit hit;
+        var mask = 1 << 9;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
+        {
+            PositionMouse = hit.point;
+            if (PositionMouse.z > maxX) PositionMouse = new Vector3(PositionMouse.x, PositionMouse.y, maxX);
+            if (PositionMouse.z < minX) PositionMouse = new Vector3(PositionMouse.x, PositionMouse.y, minX);
+        }
     }
 }

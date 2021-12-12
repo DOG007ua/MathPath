@@ -4,6 +4,6 @@ namespace Main.Interface
 {
     public interface IControllerInput
     {
-        Vector2 PositionMouse { get; }
+        Vector3 PositionMouse { get; }
     }
 }
