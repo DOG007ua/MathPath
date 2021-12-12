@@ -1,4 +1,4 @@
-﻿namespace Gate
+﻿namespace GateFolder
 {
     public interface IControlGate
     {

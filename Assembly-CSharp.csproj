@@ -58,12 +58,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Gate\ControlGate.cs" />
-     <Compile Include="Assets\Scripts\Gate\IControlGate.cs" />
+     <Compile Include="Assets\Scripts\GateFolder\Gate.cs" />
+     <Compile Include="Assets\Scripts\GateFolder\GateData.cs" />
+     <Compile Include="Assets\Scripts\GateFolder\IControlGate.cs" />
      <Compile Include="Assets\Scripts\Main\Bootstrap.cs" />
      <Compile Include="Assets\Scripts\Main\ControllerInput.cs" />
-     <Compile Include="Assets\Scripts\Main\ControllerMoveRoad.cs" />
+     <Compile Include="Assets\Scripts\Main\Interface\ControllerPoints.cs" />
      <Compile Include="Assets\Scripts\Main\Interface\IControllerInput.cs" />
+     <Compile Include="Assets\Scripts\Main\Interface\IControllerPoint.cs" />
      <Compile Include="Assets\Scripts\Player\ControllerPlayer.cs" />
      <Compile Include="Assets\Scripts\Player\IMovePlayer.cs" />
      <Compile Include="Assets\Scripts\Player\MovePlayer.cs" />
