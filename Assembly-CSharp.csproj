@@ -58,6 +58,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Gate\ControlGate.cs" />
+     <Compile Include="Assets\Scripts\Gate\IControlGate.cs" />
      <Compile Include="Assets\Scripts\Main\Bootstrap.cs" />
      <Compile Include="Assets\Scripts\Main\ControllerInput.cs" />
      <Compile Include="Assets\Scripts\Main\ControllerMoveRoad.cs" />
@@ -67,10 +69,12 @@
      <Compile Include="Assets\Scripts\Player\MovePlayer.cs" />
      <Compile Include="Assets\Scripts\ServiceLocatorFolder\ServiceLocator.cs" />
      <Compile Include="Assets\Scripts\Spawner\Factory.cs" />
+     <Compile Include="Assets\Scripts\Spawner\IFactory.cs" />
+     <Compile Include="Assets\Scripts\Spawner\ISpawn Wall.cs" />
+     <Compile Include="Assets\Scripts\Spawner\ISpawnGate.cs" />
      <Compile Include="Assets\Scripts\Spawner\SpawnGate.cs" />
      <Compile Include="Assets\Scripts\Spawner\SpawnRoad.cs" />
      <Compile Include="Assets\Scripts\Spawner\SpawnWall.cs" />
-     <Compile Include="Assets\Scripts\Spawner\SpawnerController.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Unity/Projects/Math path/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

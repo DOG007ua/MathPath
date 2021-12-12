@@ -1,18 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ServiceLocatorFolder;
+using Spawner;
 using UnityEngine;
 
-public class Factory : MonoBehaviour
+public class Factory : IFactory
 {
-    // Start is called before the first frame update
-    void Start()
+    public ISpawnGate SpawnGate { get; set; }
+    public ISpawnWall SpawnWall { get; set; }
+    public Factory(ServiceLocator locator)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SpawnGate = locator.GetService<ISpawnGate>();
+        SpawnWall = locator.GetService<ISpawnWall>();
     }
 }

@@ -1,18 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Spawner;
 using UnityEngine;
 
-public class SpawnWall : MonoBehaviour
+public class SpawnWall : ISpawnWall
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
 }

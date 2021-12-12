@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Main.Interface;
 using Player;
 using ServiceLocatorFolder;
+using Spawner;
 using UnityEngine;
 
 public class Bootstrap : MonoBehaviour
@@ -33,5 +34,8 @@ public class Bootstrap : MonoBehaviour
         locator = new ServiceLocator();
         locator.Register<IMovePlayer>(new MovePlayer(controllerPlayer.transform, controllerPlayer));
         locator.Register<IControllerInput>(controllerInput);
+        locator.Register<ISpawnGate>(new SpawnGate());
+        locator.Register<ISpawnWall>(new SpawnWall());
+        locator.Register<IFactory>(new Factory(locator));
     }
 }
