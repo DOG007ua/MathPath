@@ -4,6 +4,7 @@ namespace GateFolder
 {
     public class Gate : MonoBehaviour
     {
-        public GateData data;
+        public  GameObject LeftCilinder;
+        public GameObject RightCilinder;
     }
 }

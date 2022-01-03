@@ -61,9 +61,9 @@ public class ControllerPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var gate = other.GetComponent<Gate>();
+        var gate = other.GetComponent<SubGate>();
         if(gate == null)    return;
         
-        eventCollisionGate?.Invoke(gate.data);
+        eventCollisionGate?.Invoke(gate.Data);
     }
 }
