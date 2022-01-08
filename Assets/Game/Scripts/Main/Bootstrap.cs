@@ -15,11 +15,17 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private GateParams gateParams;
     private IControllerInput controllerInput;
     private IControllerPoint controllerPoint;
+    private IFactory factory;
+    
     void Start()
     {
         InitComponents();
         InitializeLocator();
+        factory = locator.GetService<IFactory>();
         controllerPlayer.Initialize(locator);
+
+
+        CreateGate();
     }
 
     private void InitComponents()
@@ -32,6 +38,12 @@ public class Bootstrap : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void CreateGate()
+    {
+        var gate = factory.CreateGate(new GateData(TypeGate.Summ, 10), new GateData(TypeGate.Mult, 2));
+        gate.transform.position = new Vector3(0, 1.2f, 0);
     }
 
     private void InitializeLocator()

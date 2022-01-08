@@ -24,15 +24,15 @@ namespace GateFolder
 
         private void SetterCilinders(SubGate subGateComponent, float height, bool first, bool last)
         {
-            subGateComponent.LeftCilinder.transform.position = new Vector3(
+            subGateComponent.LeftCilinder.transform.localPosition = new Vector3(
                 -height / 2.0f,
-                subGateComponent.LeftCilinder.transform.position.y,
-                subGateComponent.LeftCilinder.transform.position.z);
+                subGateComponent.LeftCilinder.transform.localPosition.y,
+                subGateComponent.LeftCilinder.transform.localPosition.z);
             
-            subGateComponent.RightCilinder.transform.position = new Vector3(
+            subGateComponent.RightCilinder.transform.localPosition = new Vector3(
                 height / 2.0f,
-                subGateComponent.RightCilinder.transform.position.y,
-                subGateComponent.RightCilinder.transform.position.z);
+                subGateComponent.RightCilinder.transform.localPosition.y,
+                subGateComponent.RightCilinder.transform.localPosition.z);
             
             if(first)   subGateComponent.LeftCilinder.SetActive(false);
             if(last)   subGateComponent.RightCilinder.SetActive(false);
@@ -41,7 +41,7 @@ namespace GateFolder
         private void SetterTrigger(SubGate subGateComponent, float height)
         {
             subGateComponent.Trigger.transform.localScale = new Vector3(
-                height / 2.0f,
+                height,
                 subGateComponent.Trigger.transform.localScale.y,
                 subGateComponent.Trigger.transform.localScale.z);
         }

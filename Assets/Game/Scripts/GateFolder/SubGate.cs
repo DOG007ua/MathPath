@@ -7,7 +7,7 @@ namespace GateFolder
     {
         public GameObject LeftCilinder;
         public GameObject RightCilinder;
-        public TextMeshPro Trigger;
+        public GameObject Trigger;
         public TextMeshPro Text;
         public GateData Data;
 
