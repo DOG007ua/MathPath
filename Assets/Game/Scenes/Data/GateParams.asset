@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884a5c42a9e54210b16ea95aa1f8f5ec, type: 3}
+  m_Name: GateParams
+  m_EditorClassIdentifier: 
+  PrefabGate: {fileID: 3953470899716168108, guid: baea8435ab792b64fb272a0009c4bd5c,
+    type: 3}
+  PrefabSubGate: {fileID: 22228212972858842, guid: 132f832d112cec54fa577168a8f5441c,
+    type: 3}
+  Height: 10

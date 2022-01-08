@@ -38,7 +38,8 @@ public class Bootstrap : MonoBehaviour
     {
         locator = new ServiceLocator();
         locator.Register<IMovePlayer>(new MovePlayer(controllerPlayer.moveObject.transform, controllerPlayer));
-        locator.Register<IFactory>(new Factory(locator));
         locator.Register<ICreatorGate>(new CreatorGate(gateParams));
+        locator.Register<IFactory>(new Factory(locator));
+        locator.Register<IControllerInput>(controllerInput);
     }
 }

@@ -559,6 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerPlayer: {fileID: 1064812332}
+  gateParams: {fileID: 11400000, guid: 7f1309aa12d45f14eb46470cd5b01e8a, type: 2}
 --- !u!4 &2035715715
 Transform:
   m_ObjectHideFlags: 0
