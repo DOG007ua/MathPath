@@ -26,7 +26,7 @@ namespace Game.Scripts.GateFolder
         void Start()
         {
             Gates = new List<GameObject>();
-            secondToSpawn = timeSpawn;
+            secondToSpawn = 1;
         }
 
         public void AddGate(GameObject gate)
@@ -56,7 +56,7 @@ namespace Game.Scripts.GateFolder
 
         public void CreateGate()
         {
-            secondToSpawn = timeSpawn;
+            NewSpawnTimeNow();
             
             var gate = factory.CreateGate(new GateData(TypeGate.Summ, 10), new GateData(TypeGate.Mult, 2));
             gate.transform.parent = this.transform;
@@ -64,6 +64,16 @@ namespace Game.Scripts.GateFolder
             
             AddGate(gate);
         }
+
+        private void NewSpawnTimeNow()
+        {
+            secondToSpawn = Random.Range(1f, 3f);
+            Debug.Log(secondToSpawn);
+        }
+
+        private void TimeSpawnNow()
+        {}
+        
 
         // Update is called once per frame
         void Update()
