@@ -58,12 +58,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Game\Scripts\GateFolder\ControllerGates.cs" />
      <Compile Include="Assets\Game\Scripts\GateFolder\CreatorGate.cs" />
      <Compile Include="Assets\Game\Scripts\GateFolder\CreatorSubGate.cs" />
      <Compile Include="Assets\Game\Scripts\GateFolder\Gate.cs" />
      <Compile Include="Assets\Game\Scripts\GateFolder\GateData.cs" />
      <Compile Include="Assets\Game\Scripts\GateFolder\GateParams.cs" />
      <Compile Include="Assets\Game\Scripts\GateFolder\IControlGate.cs" />
+     <Compile Include="Assets\Game\Scripts\GateFolder\IControllerGates.cs" />
      <Compile Include="Assets\Game\Scripts\GateFolder\ICreatorGate.cs" />
      <Compile Include="Assets\Game\Scripts\GateFolder\ISubGate.cs" />
      <Compile Include="Assets\Game\Scripts\GateFolder\SubGate.cs" />

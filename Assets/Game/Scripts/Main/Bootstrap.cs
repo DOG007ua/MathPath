@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Game.Scripts.GateFolder;
 using GateFolder;
 using Main;
 using Main.Interface;
@@ -10,28 +11,26 @@ using UnityEngine;
 
 public class Bootstrap : MonoBehaviour
 {
-    private ServiceLocator locator;
     [SerializeField] private ControllerPlayer controllerPlayer;
+    [SerializeField] private ControllerGates controllerGates;
     [SerializeField] private GateParams gateParams;
+    private ServiceLocator locator;
     private IControllerInput controllerInput;
     private IControllerPoint controllerPoint;
-    private IFactory factory;
+    
     
     void Start()
     {
         InitComponents();
         InitializeLocator();
-        factory = locator.GetService<IFactory>();
         controllerPlayer.Initialize(locator);
-
-
-        CreateGate();
+        controllerGates.Initialize(locator);
     }
 
     private void InitComponents()
     {
         controllerInput = GetComponent<IControllerInput>();
-        controllerPoint = new ControllerPoints(controllerPlayer);
+        controllerPoint = new ControllerPoints(controllerPlayer); 
     }
 
     // Update is called once per frame
@@ -39,13 +38,7 @@ public class Bootstrap : MonoBehaviour
     {
         
     }
-
-    private void CreateGate()
-    {
-        var gate = factory.CreateGate(new GateData(TypeGate.Summ, 10), new GateData(TypeGate.Mult, 2));
-        gate.transform.position = new Vector3(0, 1.2f, 0);
-    }
-
+    
     private void InitializeLocator()
     {
         locator = new ServiceLocator();
