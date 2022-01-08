@@ -4,6 +4,6 @@ namespace GateFolder
 {
     public interface ICreatorGate
     {
-        GameObject Create(float height, params GateData[] dateGates);
+        GameObject Create(params GateData[] dateGates);
     }
 }

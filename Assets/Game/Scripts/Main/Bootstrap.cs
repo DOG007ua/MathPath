@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using GateFolder;
 using Main;
 using Main.Interface;
 using Player;
@@ -11,6 +12,7 @@ public class Bootstrap : MonoBehaviour
 {
     private ServiceLocator locator;
     [SerializeField] private ControllerPlayer controllerPlayer;
+    [SerializeField] private GateParams gateParams;
     private IControllerInput controllerInput;
     private IControllerPoint controllerPoint;
     void Start()
@@ -36,10 +38,7 @@ public class Bootstrap : MonoBehaviour
     {
         locator = new ServiceLocator();
         locator.Register<IMovePlayer>(new MovePlayer(controllerPlayer.moveObject.transform, controllerPlayer));
-        locator.Register<IControllerInput>(controllerInput);
-        locator.Register<ISpawnGate>(new SpawnGate());
-        locator.Register<ISpawnWall>(new SpawnWall());
         locator.Register<IFactory>(new Factory(locator));
-        locator.Register<IControllerPoint>(controllerPoint);
+        locator.Register<ICreatorGate>(new CreatorGate(gateParams));
     }
 }

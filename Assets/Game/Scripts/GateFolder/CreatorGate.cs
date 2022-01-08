@@ -6,16 +6,19 @@ namespace GateFolder
     {
         private GateParams data;
         private CreatorSubGate creatorSubGate;
+        private readonly float height;
         
         public CreatorGate(GateParams data)
         {
             this.data = data;
+            height = data.Height;
+            creatorSubGate = new CreatorSubGate(data);
         }
         
-        public GameObject Create(float height, params GateData[] dateGates)
+        public GameObject Create(params GateData[] dateGates)
         {
             var gate = CreateMainGate(height);
-
+            CreateSubGates(gate, height, dateGates);
             return gate;
         }
 
@@ -35,8 +38,31 @@ namespace GateFolder
             
             return gate;
         }
-        
-        //Реализ
+
+        private void CreateSubGates(GameObject gate, float height, params GateData[] dateGates)
+        {
+            var amountSubGates = dateGates.Length;
+            var indent = height / (amountSubGates * 2.0f);
+            var sizeSubGate = height / amountSubGates;
+
+            for (int i = 0; i < amountSubGates; i++)
+            {
+                var first = i == 0;
+                var last = i == (amountSubGates - 1);
+                var subGate = CreateSubGate(dateGates[i], height, first, last);
+                var position = indent + sizeSubGate * i;
+                SetterSubGateInGate(gate, subGate, position);
+            }
+        }
+
+        private void SetterSubGateInGate(GameObject gate, GameObject subGate, float position)
+        {
+            subGate.transform.parent = gate.transform;
+            subGate.transform.rotation = Quaternion.Euler(Vector3.zero);
+            
+            subGate.transform.position = new Vector3(position, 0, 0);
+        }
+
         private GameObject CreateSubGate(GateData gateData, float height, bool first, bool last)
         {
             return creatorSubGate.CreateSubGate(gateData, height, first, last);

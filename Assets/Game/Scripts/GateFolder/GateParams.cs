@@ -7,5 +7,6 @@ namespace GateFolder
     {
         public GameObject PrefabGate;
         public GameObject PrefabSubGate;
+        public float Height;
     }
 }
