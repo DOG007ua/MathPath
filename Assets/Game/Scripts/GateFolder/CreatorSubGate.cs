@@ -34,7 +34,7 @@ namespace GateFolder
                 subGateComponent.RightCilinder.transform.localPosition.y,
                 subGateComponent.RightCilinder.transform.localPosition.z);
             
-            if(first)   subGateComponent.LeftCilinder.SetActive(false);
+            subGateComponent.LeftCilinder.SetActive(false);
             if(last)   subGateComponent.RightCilinder.SetActive(false);
         }
         

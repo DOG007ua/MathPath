@@ -14,7 +14,7 @@ namespace Game.Scripts.GateFolder
         public GameObject positionSpawn;
         public GameObject positionDelete;
         private float secondToSpawn;
-        private float timeSpawn = 2;
+        private float timeSpawn = 10;
         private IFactory factory;
 
 
@@ -67,7 +67,7 @@ namespace Game.Scripts.GateFolder
 
         private void NewSpawnTimeNow()
         {
-            secondToSpawn = Random.Range(1f, 3f);
+            secondToSpawn = Random.Range(50f, 100f);
             Debug.Log(secondToSpawn);
         }
 
@@ -85,9 +85,13 @@ namespace Game.Scripts.GateFolder
 
         private void UnsuitableGate()
         {
-            foreach (var gate in Gates.Where(NeedDeleteGate))
+            foreach (var gate in Gates)
             {
-                RemoveGate(gate);
+                if (NeedDeleteGate(gate))
+                {
+                    RemoveGate(gate);
+                    return;
+                }
             }
         }
     
@@ -95,7 +99,8 @@ namespace Game.Scripts.GateFolder
         private bool NeedDeleteGate(GameObject gate)
         {
             var distanceDeletePosition = Vector3.Distance(gate.transform.position, positionDelete.transform.position);
-            return distanceDeletePosition < 1;
+            Debug.Log($"distance: {distanceDeletePosition}");
+            return distanceDeletePosition < 3;
         }
     }
 }
