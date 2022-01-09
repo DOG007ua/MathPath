@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = System.Random;
 
 namespace GateFolder
 {
@@ -21,6 +24,66 @@ namespace GateFolder
             CreateSubGates(gate, height, dateGates);
             return gate;
         }
+        
+        public GameObject Create(int amountSubGates)
+        {
+            var dateGates = new GateData[amountSubGates];
+            for (var i = 0; i < amountSubGates; i++)
+            {
+                dateGates[i] = GenerateDataGate();
+            }
+            return Create(dateGates);
+        }
+
+        private GateData GenerateDataGate()
+        {
+            var type = GenerateType();
+            var value = GenerateValue(type);
+            return new GateData(type, value);
+        }
+
+        private TypeGate GenerateType()
+        {
+            var amountType = Enum.GetNames(typeof(TypeGate)).Length;
+            var value = UnityEngine.Random.Range(0, amountType);
+            switch (value)
+            {
+                case 0:
+                    return TypeGate.Summ;
+                case 1:
+                    return TypeGate.Minus;
+                case 2:
+                    return TypeGate.Mult;
+                case 3:
+                    return TypeGate.Division;
+                default:
+                    return TypeGate.Summ;
+            }
+        }
+
+        private float GenerateValue(TypeGate type)
+        {
+            var massSum = new[] {1f, 3f, 5f, 8f, 12f, 15f,20f, 30f, 35f, 40f};
+            var massMult = new[] {1f, 1.5f, 2f, 2,5f};
+            var massMinus = new[] {1f, 3f, 5f, 8f, 12f, 15f,20f, 30f, 35f, 40f};
+            var massDivision = new[] {1f, 1.5f, 2f, 2,5f};
+
+            switch (type)
+            {
+                case TypeGate.Summ:
+                    return massSum[UnityEngine.Random.Range(0, massSum.Length)];
+                case TypeGate.Minus:
+                    return massMinus[UnityEngine.Random.Range(0, massMinus.Length)];
+                case TypeGate.Mult:
+                    return massMult[UnityEngine.Random.Range(0, massMult.Length)];
+                case TypeGate.Division:
+                    return massDivision[UnityEngine.Random.Range(0, massDivision.Length)];
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
+        }
+        
+        
 
         private GameObject CreateMainGate(float height)
         {

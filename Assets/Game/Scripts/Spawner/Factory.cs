@@ -19,5 +19,9 @@ public class Factory : IFactory
     {
         return creatorGate.Create(dateGates);
     }
-    
+
+    public GameObject CreateGate(int amountSubGates)
+    {
+        return creatorGate.Create(amountSubGates);
+    }
 }
