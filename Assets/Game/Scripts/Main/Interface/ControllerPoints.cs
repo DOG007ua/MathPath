@@ -1,5 +1,6 @@
 ﻿using System;
 using GateFolder;
+using UnityEngine;
 
 namespace Main.Interface
 {
@@ -51,6 +52,7 @@ namespace Main.Interface
         {
             CalculationPoint(data);
             player.Size = points;
+            Debug.Log(points);
         }
     }
 }

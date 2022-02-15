@@ -10,21 +10,20 @@ using GateFolder;
 public class ControllerPlayer : MonoBehaviour
 {
     public GameObject moveObject;
-    public bool IsMove { get; set; } = true;
+    [SerializeField] private ColliderPlayer colliderComponent;
+    private bool IsMove { get; set; } = true;
     private float size;
-    private float coefSize = 0.1f;
-    public float Size 
+    [SerializeField] private float coefSize = 0.02f;
+    private float maxSize = 2.2f;
+    public float Size
     {
-        get
-        {
-            return size;
-        }
+        get => size;
         set
         {
-            size = value;
-            var sizeTransform = 0.1f + size * coefSize;
-            if (sizeTransform > 5) sizeTransform = 5;
-            moveObject.transform.localScale = new Vector3(sizeTransform, 1, sizeTransform);
+            size = 0.1f + value * coefSize;
+            if (size > 3) size = maxSize;
+            
+            moveObject.transform.localScale = new Vector3(size, 1, size);
             Debug.Log($"Size: {Size}");
         }
     }
@@ -39,6 +38,7 @@ public class ControllerPlayer : MonoBehaviour
         Size = 1;
         this.input = locator.GetService<IControllerInput>();
         this.movePlayer = locator.GetService<IMovePlayer>();
+        colliderComponent.eventCollisionGate += OnTriggerEnterSubGate;
     }
 
     void Start()
@@ -59,11 +59,8 @@ public class ControllerPlayer : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnterSubGate(GateData data)
     {
-        var gate = other.GetComponent<SubGate>();
-        if(gate == null)    return;
-        
-        eventCollisionGate?.Invoke(gate.Data);
+        eventCollisionGate?.Invoke(data);
     }
 }

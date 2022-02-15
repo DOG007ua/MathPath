@@ -11,7 +11,8 @@ namespace GateFolder
         public TextMeshPro Text;
         public GateData Data;
 
-        public SubGate(GateData data)
+
+        public void Initialize(GateData data)
         {
             Data = data;
         }

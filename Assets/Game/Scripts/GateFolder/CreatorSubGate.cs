@@ -16,6 +16,7 @@ namespace GateFolder
         {
             var subGate = Object.Instantiate(data.PrefabSubGate);
             var subGateComponent = subGate.GetComponent<SubGate>();
+            subGateComponent.Initialize(gateData);
             SetterCilinders(subGateComponent, height, first, last);
             SetterTrigger(subGateComponent, height);
             SetterText(subGateComponent, gateData);
