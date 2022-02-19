@@ -6,6 +6,7 @@ namespace Main.Interface
 {
     public class ControllerPoints : IControllerPoint
     {
+        public event Action<float> eventAddPoints;
         private int lastGateID = -1;
         private float points = 1;
         public float Points 
@@ -55,6 +56,7 @@ namespace Main.Interface
             
             CalculationPoint(data);
             player.UpdatePoints(Points);
+            eventAddPoints?.Invoke(Points);
             Debug.Log(points);
         }
 

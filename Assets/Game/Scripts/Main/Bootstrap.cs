@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.GateFolder;
+using Game.Scripts.Main.Interface;
 using GateFolder;
 using Main;
 using Main.Interface;
@@ -17,6 +18,7 @@ public class Bootstrap : MonoBehaviour
     private ServiceLocator locator;
     private IControllerInput controllerInput;
     private IControllerPoint controllerPoint;
+    private IPointsUI pointsUI;
     
     
     void Start()
@@ -30,7 +32,9 @@ public class Bootstrap : MonoBehaviour
     private void InitComponents()
     {
         controllerInput = GetComponent<IControllerInput>();
-        controllerPoint = new ControllerPoints(controllerPlayer); 
+        controllerPoint = new ControllerPoints(controllerPlayer);
+        pointsUI = GetComponent<IPointsUI>();;
+        controllerPoint.eventAddPoints += pointsUI.UpdatePoints;
     }
 
     // Update is called once per frame

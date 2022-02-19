@@ -72,9 +72,11 @@
      <Compile Include="Assets\Game\Scripts\GateFolder\SubGate.cs" />
      <Compile Include="Assets\Game\Scripts\Main\Bootstrap.cs" />
      <Compile Include="Assets\Game\Scripts\Main\ControllerInput.cs" />
-     <Compile Include="Assets\Game\Scripts\Main\Interface\ControllerPoints.cs" />
+     <Compile Include="Assets\Game\Scripts\Main\ControllerPoints.cs" />
      <Compile Include="Assets\Game\Scripts\Main\Interface\IControllerInput.cs" />
      <Compile Include="Assets\Game\Scripts\Main\Interface\IControllerPoint.cs" />
+     <Compile Include="Assets\Game\Scripts\Main\Interface\IPointsUI.cs" />
+     <Compile Include="Assets\Game\Scripts\Main\Interface\PointsUI.cs" />
      <Compile Include="Assets\Game\Scripts\Player\CalculationSizePlayer.cs" />
      <Compile Include="Assets\Game\Scripts\Player\ColliderPlayer.cs" />
      <Compile Include="Assets\Game\Scripts\Player\ControllerPlayer.cs" />
