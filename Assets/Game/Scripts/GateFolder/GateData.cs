@@ -4,11 +4,13 @@
     {
         public readonly TypeGate Type;
         public readonly float Value;
+        public readonly int ID;
 
-        public GateData(TypeGate type, float value)
+        public GateData(TypeGate type, float value, int id)
         {
             Type = type;
             Value = value;
+            ID = id;
         }
     }
 

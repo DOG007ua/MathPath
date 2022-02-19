@@ -10,6 +10,7 @@ namespace GateFolder
         private GateParams data;
         private CreatorSubGate creatorSubGate;
         private readonly float height;
+        private int lastGateID = 0;
         
         public CreatorGate(GateParams data)
         {
@@ -28,6 +29,7 @@ namespace GateFolder
         public GameObject Create(int amountSubGates)
         {
             var dateGates = new GateData[amountSubGates];
+            lastGateID++;
             for (var i = 0; i < amountSubGates; i++)
             {
                 dateGates[i] = GenerateDataGate();
@@ -39,7 +41,7 @@ namespace GateFolder
         {
             var type = GenerateType();
             var value = GenerateValue(type);
-            return new GateData(type, value);
+            return new GateData(type, value, lastGateID);
         }
 
         private TypeGate GenerateType()

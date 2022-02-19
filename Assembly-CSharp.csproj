@@ -75,8 +75,10 @@
      <Compile Include="Assets\Game\Scripts\Main\Interface\ControllerPoints.cs" />
      <Compile Include="Assets\Game\Scripts\Main\Interface\IControllerInput.cs" />
      <Compile Include="Assets\Game\Scripts\Main\Interface\IControllerPoint.cs" />
+     <Compile Include="Assets\Game\Scripts\Player\CalculationSizePlayer.cs" />
      <Compile Include="Assets\Game\Scripts\Player\ColliderPlayer.cs" />
      <Compile Include="Assets\Game\Scripts\Player\ControllerPlayer.cs" />
+     <Compile Include="Assets\Game\Scripts\Player\ICalculationSize.cs" />
      <Compile Include="Assets\Game\Scripts\Player\IMovePlayer.cs" />
      <Compile Include="Assets\Game\Scripts\Player\MovePlayer.cs" />
      <Compile Include="Assets\Game\Scripts\ServiceLocatorFolder\ServiceLocator.cs" />
